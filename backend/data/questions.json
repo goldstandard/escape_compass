@@ -1,0 +1,1105 @@
+{
+  "version": "1.0",
+  "categories": [
+    {
+      "id": "cat1",
+      "title": "Geopolitics, Law, and Logistics",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "prompt": "What is your primary citizenship (passport)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "European Union (Schengen)"
+            },
+            {
+              "key": "B",
+              "text": "USA / Canada / UK / Australia"
+            },
+            {
+              "key": "C",
+              "text": "Other (requires visa processing for most countries)"
+            }
+          ]
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "prompt": "What is your preferred legal status for your second home?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Tourist status is enough (stays up to 90 days)"
+            },
+            {
+              "key": "B",
+              "text": "Digital Nomad / Independent Worker Visa"
+            },
+            {
+              "key": "C",
+              "text": "Permanent residency via investment (Golden Visa / property purchase)"
+            },
+            {
+              "key": "D",
+              "text": "Pathway to full citizenship"
+            }
+          ]
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "prompt": "How long do you plan to stay in this location at a time?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A few weeks a year (short vacations)"
+            },
+            {
+              "key": "B",
+              "text": "3 to 6 months a year (overwintering / seasonal living)"
+            },
+            {
+              "key": "C",
+              "text": "More than 6 months a year (it will become my primary tax residency)"
+            }
+          ]
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "prompt": "In the event of a global crisis (e.g., closed airspace), how do you need to access this location from your current home?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Exclusively by land (car, train within the same continent)"
+            },
+            {
+              "key": "B",
+              "text": "By air (distance is not an issue)"
+            },
+            {
+              "key": "C",
+              "text": "By sea / boat"
+            }
+          ]
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "prompt": "What is your tolerance regarding the host country's political regime?",
+          "options": [
+            {
+              "key": "A",
+              "text": "I only accept fully developed Western democracies"
+            },
+            {
+              "key": "B",
+              "text": "I don't mind hybrid regimes or authoritarian states if they guarantee internal order and safety for expats (e.g., Singapore, UAE)"
+            },
+            {
+              "key": "C",
+              "text": "I don't care about the regime, only my personal freedom on my property"
+            }
+          ]
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "prompt": "How important is the country's military and strategic isolation (the \"Nuclear Escape\" factor)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Critical \u2013 I want a country outside NATO/major military blocs, ideally in the Southern Hemisphere or an island nation (e.g., New Zealand, Fiji, Chile)"
+            },
+            {
+              "key": "B",
+              "text": "Moderate \u2013 I prefer neutral European countries or stable regions (e.g., Switzerland, Austria)"
+            },
+            {
+              "key": "C",
+              "text": "Not at all \u2013 I want to be in the center of global events (USA, Western Europe)"
+            }
+          ]
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "prompt": "What is your stance on government regulations and restrictions (e.g., lockdowns, mandatory vaccination during pandemics)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "I require a country with a history of mild or no sweeping restrictions (e.g., Sweden, certain US states)"
+            },
+            {
+              "key": "B",
+              "text": "I respect strict government measures if they protect society"
+            },
+            {
+              "key": "C",
+              "text": "It doesn't matter to me"
+            }
+          ]
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "prompt": "How sensitive are you to the risk of asset expropriation or currency reform?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Extremely sensitive \u2013 I require a strong rule of law and 100% protection of private property"
+            },
+            {
+              "key": "B",
+              "text": "I am willing to take risks in a developing country in exchange for lower costs and high returns"
+            }
+          ]
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "prompt": "Does your profession/business allow for the legal transfer of income abroad?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Yes, I work fully online / live off investments"
+            },
+            {
+              "key": "B",
+              "text": "No, I am tied to the physical location of my current home"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat2",
+      "title": "Safety, Crime, and Stability",
+      "questions": [
+        {
+          "id": "q10",
+          "number": 10,
+          "prompt": "What level of petty street crime (theft, assault) is acceptable to you?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Near zero \u2013 I want to be able to leave my car/house unlocked (e.g., Japan, Iceland)"
+            },
+            {
+              "key": "B",
+              "text": "Low \u2013 standard awareness is enough (most of Europe)"
+            },
+            {
+              "key": "C",
+              "text": "Average \u2013 I don't mind areas with \"bad neighborhoods\" as long as I know where not to go"
+            }
+          ]
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "prompt": "How concerned are you about organized crime and corruption?",
+          "options": [
+            {
+              "key": "A",
+              "text": "I require a country with a transparent government and minimal corruption"
+            },
+            {
+              "key": "B",
+              "text": "Bureaucratic corruption doesn't bother me if it allows me to \"speed things up\""
+            }
+          ]
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "prompt": "What is your stance on the right to self-defense and gun ownership?",
+          "options": [
+            {
+              "key": "A",
+              "text": "I want to live in a country where it is legal and straightforward to own a firearm for self-defense (e.g., USA, Czechia)"
+            },
+            {
+              "key": "B",
+              "text": "I prefer a country with strict gun bans among the civilian population (e.g., UK, Japan)"
+            },
+            {
+              "key": "C",
+              "text": "I have no strong opinion"
+            }
+          ]
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "prompt": "How important are cybersecurity and internet freedom in the given country?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Critical \u2013 I refuse any web censorship, VPN blocking, or user surveillance"
+            },
+            {
+              "key": "B",
+              "text": "I don't mind moderate regulation as long as it doesn't block standard work tools"
+            }
+          ]
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "prompt": "How do you view social unrest and the risk of demonstrations/strikes?",
+          "options": [
+            {
+              "key": "A",
+              "text": "I am looking for a country with an extremely calm, homogeneous, and non-confrontational culture"
+            },
+            {
+              "key": "B",
+              "text": "I don't mind a dynamic society where protests are a normal part of politics (e.g., France)"
+            }
+          ]
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "prompt": "How much weight do you give to the safety of women and children (if traveling with family)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Key factor \u2013 family safety is my absolute number one priority"
+            },
+            {
+              "key": "B",
+              "text": "Standard requirements \u2013 typical family-friendly environments"
+            }
+          ]
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "prompt": "What is your tolerance for a heavy military or police presence on the streets?",
+          "options": [
+            {
+              "key": "A",
+              "text": "I prefer a country where police are not visible unless needed"
+            },
+            {
+              "key": "B",
+              "text": "Increased presence of armed forces makes me feel safe (e.g., Israel, Singapore)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat3",
+      "title": "Climate, Weather, and Natural Hazards",
+      "questions": [
+        {
+          "id": "q17",
+          "number": 17,
+          "prompt": "What temperature spectrum suits you best for most of the year?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Constant heat (above 25 \u00b0C year-round, tropics)"
+            },
+            {
+              "key": "B",
+              "text": "Mediterranean ideal (warm summers, very mild winters around 10\u201315 \u00b0C)"
+            },
+            {
+              "key": "C",
+              "text": "Four distinct seasons (including snow in winter and hot summers)"
+            },
+            {
+              "key": "D",
+              "text": "Year-round cool / mountain climate (temperatures rarely exceeding 20 \u00b0C)"
+            }
+          ]
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "prompt": "How do you handle high humidity?",
+          "options": [
+            {
+              "key": "A",
+              "text": "I love it / don't mind it (typical of Southeast Asia or the Caribbean)"
+            },
+            {
+              "key": "B",
+              "text": "I prefer dry heat (Mediterranean, desert regions like Arizona or Dubai)"
+            }
+          ]
+        },
+        {
+          "id": "q19",
+          "number": 19,
+          "prompt": "What is the minimum number of sunny days per year you require?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Maximum \u2013 I want permanent sunshine (over 300 days a year)"
+            },
+            {
+              "key": "B",
+              "text": "I don't mind alternating clouds, rain, and sun (temperate zone)"
+            },
+            {
+              "key": "C",
+              "text": "I like overcast skies, fog, and a Nordic atmosphere"
+            }
+          ]
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "prompt": "What is your relationship with precipitation and the rainy season?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Monsoons or regular heavy rains don't bother me as long as the landscape is green"
+            },
+            {
+              "key": "B",
+              "text": "I want a country where it rains minimally and predictably"
+            }
+          ]
+        },
+        {
+          "id": "q21",
+          "number": 21,
+          "prompt": "How concerned are you about the impacts of climate change (drought, extreme heatwaves)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Extremely \u2013 I am looking for a \"climate refuge\" (areas that will remain stable long-term, e.g., Northern Europe, southern tip of South America)"
+            },
+            {
+              "key": "B",
+              "text": "Moderately \u2013 I expect it, but I will manage it with AC / heating"
+            }
+          ]
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "prompt": "What is your tolerance for the risk of hurricanes, typhoons, and cyclones?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Zero \u2013 I want regions where these phenomena do not structurally occur"
+            },
+            {
+              "key": "B",
+              "text": "I accept seasonal risk if the local infrastructure is of high quality"
+            }
+          ]
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "prompt": "How do you perceive the risk of earthquakes and volcanic activity?",
+          "options": [
+            {
+              "key": "A",
+              "text": "I require tectonically completely quiet areas"
+            },
+            {
+              "key": "B",
+              "text": "I don't mind living in a seismically active zone (e.g., Japan, Iceland, Costa Rica)"
+            }
+          ]
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "prompt": "Is the length of daylight in winter important to you?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Yes, I suffer from a lack of light \u2013 I need long days in winter (closer to the equator)"
+            },
+            {
+              "key": "B",
+              "text": "No, I don't mind short winter days (Nordic countries)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat4",
+      "title": "Geography, Landscape, and Location",
+      "questions": [
+        {
+          "id": "q25",
+          "number": 25,
+          "prompt": "What must be in the immediate vicinity of your home?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Ocean / sea coast"
+            },
+            {
+              "key": "B",
+              "text": "High mountains / ski resorts"
+            },
+            {
+              "key": "C",
+              "text": "Deep forests / lakes / pristine nature"
+            },
+            {
+              "key": "D",
+              "text": "No nature \u2013 I want a concrete jungle and skyscrapers"
+            }
+          ]
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "prompt": "At what altitude should the location be situated?",
+          "options": [
+            {
+              "key": "A",
+              "text": "At sea level (coastal plains)"
+            },
+            {
+              "key": "B",
+              "text": "Mid-altitude (foothills, rolling hills)"
+            },
+            {
+              "key": "C",
+              "text": "High mountain areas (above 1500 m above sea level)"
+            }
+          ]
+        },
+        {
+          "id": "q27",
+          "number": 27,
+          "prompt": "What type of beaches do you prefer (if you want the sea)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Tropical sandy beaches with warm water for swimming"
+            },
+            {
+              "key": "B",
+              "text": "Wild, rocky coastlines with a cold ocean (for views, surfing)"
+            },
+            {
+              "key": "C",
+              "text": "I don't insist on beaches, a view of the water is enough"
+            }
+          ]
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "prompt": "How important is proximity to water sources (rivers, fresh drinking water)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Critical \u2013 I want to live in an area with a massive natural supply of fresh water"
+            },
+            {
+              "key": "B",
+              "text": "Standard \u2013 I rely on the municipal water supply"
+            }
+          ]
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "prompt": "Are you looking for an island or the mainland?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Island \u2013 I want a clearly defined, isolated territory"
+            },
+            {
+              "key": "B",
+              "text": "Mainland \u2013 I want the option to get in a car and drive thousands of miles in any direction"
+            }
+          ]
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "prompt": "What view from the window is most important to you?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A view of the water surface"
+            },
+            {
+              "key": "B",
+              "text": "A view of mountain peaks"
+            },
+            {
+              "key": "C",
+              "text": "A view of the city skyline and lights"
+            },
+            {
+              "key": "D",
+              "text": "A view of greenery / garden"
+            }
+          ]
+        },
+        {
+          "id": "q31",
+          "number": 31,
+          "prompt": "How much do insects and wildlife (snakes, spiders) bother you?",
+          "options": [
+            {
+              "key": "A",
+              "text": "They bother me \u2013 I want areas with minimal dangerous or annoying fauna"
+            },
+            {
+              "key": "B",
+              "text": "They don't bother me \u2013 I see it as a natural part of an exotic environment"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat5",
+      "title": "Urbanism and Type of Settlement",
+      "questions": [
+        {
+          "id": "q32",
+          "number": 32,
+          "prompt": "What size of human settlement suits you best?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Megacity (millions of inhabitants, 24/7 life)"
+            },
+            {
+              "key": "B",
+              "text": "Medium-sized city (50\u2013500k inhabitants, full amenities, less hustle)"
+            },
+            {
+              "key": "C",
+              "text": "Small town / village (community life)"
+            },
+            {
+              "key": "D",
+              "text": "Absolute solitude / off-grid (nearest neighbor out of sight)"
+            }
+          ]
+        },
+        {
+          "id": "q33",
+          "number": 33,
+          "prompt": "What architectural style of the surroundings do you prefer?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Ultra-modern (skyscrapers, glass, steel, futurism)"
+            },
+            {
+              "key": "B",
+              "text": "Historical / European (ancient centers, stone streets)"
+            },
+            {
+              "key": "C",
+              "text": "Traditional local / exotic (colonial style, Asian architecture, wooden structures)"
+            },
+            {
+              "key": "D",
+              "text": "Looks don't matter, functionality comes first"
+            }
+          ]
+        },
+        {
+          "id": "q34",
+          "number": 34,
+          "prompt": "What mode of transport do you primarily plan to use locally?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Exclusively my own car (I require great roads and parking)"
+            },
+            {
+              "key": "B",
+              "text": "Walking + top-tier public transport (subway, trams)"
+            },
+            {
+              "key": "C",
+              "text": "Scooter / motorcycle (typical for Asia/Mediterranean islands)"
+            }
+          ]
+        },
+        {
+          "id": "q35",
+          "number": 35,
+          "prompt": "How far are you willing to commute for basic amenities (groceries, pharmacy)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Within a 5-minute walk"
+            },
+            {
+              "key": "B",
+              "text": "Within 15 minutes by car"
+            },
+            {
+              "key": "C",
+              "text": "I don't mind driving an hour once a week for a big shop"
+            }
+          ]
+        },
+        {
+          "id": "q36",
+          "number": 36,
+          "prompt": "How important is walking distance to cafes, restaurants, and culture from your home?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Essential \u2013 I want to live an urban lifestyle"
+            },
+            {
+              "key": "B",
+              "text": "Secondary \u2013 I'd rather walk in the woods; I'll drive to a restaurant"
+            }
+          ]
+        },
+        {
+          "id": "q37",
+          "number": 37,
+          "prompt": "How do you perceive noise pollution?",
+          "options": [
+            {
+              "key": "A",
+              "text": "I hate it \u2013 I require absolute day and night silence"
+            },
+            {
+              "key": "B",
+              "text": "City sounds don't bother me; on the contrary, they energize me"
+            }
+          ]
+        },
+        {
+          "id": "q38",
+          "number": 38,
+          "prompt": "What should the population density be in the given region?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Very low (I want space for myself, cheap land)"
+            },
+            {
+              "key": "B",
+              "text": "High (I want to be where business and trends are made)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat6",
+      "title": "Infrastructure and Technology",
+      "questions": [
+        {
+          "id": "q39",
+          "number": 39,
+          "prompt": "What standard of internet connection is critical for you?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Top-tier \u2013 fiber internet with low latency and 5G coverage (for trading, video calls)"
+            },
+            {
+              "key": "B",
+              "text": "Stable average \u2013 reliable DSL or fast 4G is enough"
+            },
+            {
+              "key": "C",
+              "text": "Independent \u2013 as long as satellite Starlink works over the location, I'm good"
+            }
+          ]
+        },
+        {
+          "id": "q40",
+          "number": 40,
+          "prompt": "What is your requirement for international airport proximity?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Within 45 minutes drive (I travel often, need a hub with direct flights globally)"
+            },
+            {
+              "key": "B",
+              "text": "Within 2 to 3 hours drive (I accept longer transfers in exchange for more peace)"
+            },
+            {
+              "key": "C",
+              "text": "I don't need an airport / a local domestic runway is enough"
+            }
+          ]
+        },
+        {
+          "id": "q41",
+          "number": 41,
+          "prompt": "What level of healthcare do you require locally?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Absolute top-tier \u2013 internationally accredited hospitals, English-speaking doctors"
+            },
+            {
+              "key": "B",
+              "text": "Standard \u2013 regional hospitals on a good European/American level"
+            },
+            {
+              "key": "C",
+              "text": "Basic \u2013 first aid; for serious cases, I have insurance with repatriation (flight home)"
+            }
+          ]
+        },
+        {
+          "id": "q42",
+          "number": 42,
+          "prompt": "How reliable must the power grid and energy supply be?",
+          "options": [
+            {
+              "key": "A",
+              "text": "100% stable without outages (Western standard)"
+            },
+            {
+              "key": "B",
+              "text": "I don't mind occasional short blackouts if the house has a backup generator"
+            },
+            {
+              "key": "C",
+              "text": "I plan to have my own solar/wind system, I don't care about the grid"
+            }
+          ]
+        },
+        {
+          "id": "q43",
+          "number": 43,
+          "prompt": "What is your requirement for tap water quality?",
+          "options": [
+            {
+              "key": "A",
+              "text": "I want tap water to be drinkable and high-quality without filtration"
+            },
+            {
+              "key": "B",
+              "text": "I don't mind buying bottled water or using reverse osmosis"
+            }
+          ]
+        },
+        {
+          "id": "q44",
+          "number": 44,
+          "prompt": "How important is the presence of Amazon / fast delivery of online purchases?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Very \u2013 I shop online constantly, want delivery within 2 days"
+            },
+            {
+              "key": "B",
+              "text": "Secondary \u2013 I can manage without it, local shops are enough"
+            }
+          ]
+        },
+        {
+          "id": "q45",
+          "number": 45,
+          "prompt": "Do you use an electric vehicle (EV) or plan to buy one?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Yes, I need a developed infrastructure of charging stations"
+            },
+            {
+              "key": "B",
+              "text": "No, I prefer an internal combustion engine / petrol / diesel"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat7",
+      "title": "Society, Culture, and Lifestyle",
+      "questions": [
+        {
+          "id": "q46",
+          "number": 46,
+          "prompt": "What language do you need to communicate in locally?",
+          "options": [
+            {
+              "key": "A",
+              "text": "English only (I require English to be the main or widely spoken language)"
+            },
+            {
+              "key": "B",
+              "text": "I want Spanish / Portuguese (or am willing to learn them quickly)"
+            },
+            {
+              "key": "C",
+              "text": "I am willing to learn any local language (e.g., Thai, Vietnamese, Polish)"
+            },
+            {
+              "key": "D",
+              "text": "Language doesn't matter, I'll use my hands and feet / translation apps"
+            }
+          ]
+        },
+        {
+          "id": "q47",
+          "number": 47,
+          "prompt": "What community of people do you primarily want to surround yourself with?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A community of international expats, digital nomads, and entrepreneurs"
+            },
+            {
+              "key": "B",
+              "text": "Local citizens (I want an authentic, local life)"
+            },
+            {
+              "key": "C",
+              "text": "I want to be entirely alone, I do not seek out people"
+            }
+          ]
+        },
+        {
+          "id": "q48",
+          "number": 48,
+          "prompt": "What is your relationship to religion in the host country?",
+          "options": [
+            {
+              "key": "A",
+              "text": "I prefer a secular / atheistic environment"
+            },
+            {
+              "key": "B",
+              "text": "I want a traditional Christian cultural environment (Europe, Latin America)"
+            },
+            {
+              "key": "C",
+              "text": "I don't mind a Buddhist / Hindu environment (Asia)"
+            },
+            {
+              "key": "D",
+              "text": "I don't mind a Muslim environment (Middle East, North Africa)"
+            }
+          ]
+        },
+        {
+          "id": "q49",
+          "number": 49,
+          "prompt": "How important is local gastronomy and food culture to you?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Extremely \u2013 I want fresh ingredients, fish markets, fine dining, or great street food"
+            },
+            {
+              "key": "B",
+              "text": "Average \u2013 standard supermarkets are enough, I cook standard meals myself"
+            }
+          ]
+        },
+        {
+          "id": "q50",
+          "number": 50,
+          "prompt": "How do you view bureaucracy and the pace of life (the \"Ma\u00f1ana\" factor)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "I hate delays \u2013 I require efficiency, digitization, and punctuality (e.g., Germany, Estonia)"
+            },
+            {
+              "key": "B",
+              "text": "I like a slow living pace and don't mind things taking longer (e.g., Caribbean, Southern Europe)"
+            }
+          ]
+        },
+        {
+          "id": "q51",
+          "number": 51,
+          "prompt": "What is your stance on LGBTQ+ rights and the overall liberalism of society?",
+          "options": [
+            {
+              "key": "A",
+              "text": "I require a highly liberal, open, and tolerant society"
+            },
+            {
+              "key": "B",
+              "text": "I prefer conservative, traditional family values"
+            },
+            {
+              "key": "C",
+              "text": "It doesn't matter to me as long as nobody bothers me"
+            }
+          ]
+        },
+        {
+          "id": "q52",
+          "number": 52,
+          "prompt": "Do you plan to live in the location with your pets (dog, cat)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Yes, I choose the country based on how easy it is to import animals and how pet-friendly it is"
+            },
+            {
+              "key": "B",
+              "text": "No, I don't have pets"
+            }
+          ]
+        },
+        {
+          "id": "q53",
+          "number": 53,
+          "prompt": "How important is the availability of nightlife, clubs, and bars?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Very, I want to have fun late into the night"
+            },
+            {
+              "key": "B",
+              "text": "Not at all, I prefer sitting on the terrace or sleeping in the evening"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cat8",
+      "title": "Finances, Taxes, and Self-Sufficiency",
+      "questions": [
+        {
+          "id": "q54",
+          "number": 54,
+          "prompt": "What is your maximum monthly budget to run the second home (rent/mortgage + utilities + food)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Low-budget: Up to 1,500 USD per month"
+            },
+            {
+              "key": "B",
+              "text": "Mid-range: 1,500 \u2013 3,500 USD per month"
+            },
+            {
+              "key": "C",
+              "text": "Premium: 3,500 \u2013 7,000 USD per month"
+            },
+            {
+              "key": "D",
+              "text": "Luxury / Unlimited: Over 7,000 USD per month"
+            }
+          ]
+        },
+        {
+          "id": "q55",
+          "number": 55,
+          "prompt": "What is your primary goal from a taxation perspective?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Tax optimization \u2013 I want a country with zero income tax or territorial taxation (tax haven)"
+            },
+            {
+              "key": "B",
+              "text": "Fair tax \u2013 I don't mind paying taxes in exchange for great public services and infrastructure"
+            },
+            {
+              "key": "C",
+              "text": "I don't care about taxes, I won't be a tax resident in the country anyway"
+            }
+          ]
+        },
+        {
+          "id": "q56",
+          "number": 56,
+          "prompt": "Do you require the country to be cheap in terms of real estate purchases?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Yes, I want to buy a large plot/house for little money"
+            },
+            {
+              "key": "B",
+              "text": "No, the quality of the location dictates the price, I am ready to pay a premium"
+            }
+          ]
+        },
+        {
+          "id": "q57",
+          "number": 57,
+          "prompt": "In which currency do you want your local fixed costs to be pegged?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Only in strong global currencies (EUR, USD, CHF)"
+            },
+            {
+              "key": "B",
+              "text": "I don't mind local exotic currencies (THB, MXN, IDR) as long as inflation is low"
+            }
+          ]
+        },
+        {
+          "id": "q58",
+          "number": 58,
+          "prompt": "Are you looking for a property with potential for short-term rental (Airbnb) when you are not there?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Yes, the house must generate income when I'm away (requires local legislative support for Airbnb)"
+            },
+            {
+              "key": "B",
+              "text": "No, the house will serve exclusively me, privacy is absolute"
+            }
+          ]
+        },
+        {
+          "id": "q59",
+          "number": 59,
+          "prompt": "To what extent do you require food and energy self-sufficiency (the Prepping factor)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "High \u2013 I want a large plot with its own well, the possibility of growing crops, raising animals, and solar power"
+            },
+            {
+              "key": "B",
+              "text": "Zero \u2013 I want the full comfort of a city apartment without having to maintain anything"
+            }
+          ]
+        },
+        {
+          "id": "q60",
+          "number": 60,
+          "prompt": "What is your stance on the price and availability of local labor (nannies, cleaners, gardeners)?",
+          "options": [
+            {
+              "key": "A",
+              "text": "I want a country where labor is cheap and I can easily afford full-time staff (e.g., Bali, Philippines, Mexico)"
+            },
+            {
+              "key": "B",
+              "text": "I don't use these services / I don't mind high Western rates for hourly work"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

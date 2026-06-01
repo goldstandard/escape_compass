@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: escape-finder-backend
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: escape-finder-db
+          property: connectionString
+      - key: AUTO_SEED_DB
+        value: "true"
+      - key: CORS_ORIGINS
+        value: "http://localhost:5173,http://127.0.0.1:5173"
+
+  - type: static
+    name: escape-finder-frontend
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    pullRequestPreviewsEnabled: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_BASE_URL
+        sync: false
+      - key: VITE_MAPBOX_TOKEN
+        sync: false
+
+databases:
+  - name: escape-finder-db
+    plan: free
