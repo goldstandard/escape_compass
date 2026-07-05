@@ -14,7 +14,7 @@ services:
       - key: AUTO_SEED_DB
         value: "true"
       - key: CORS_ORIGINS
-        value: "http://localhost:5173,http://127.0.0.1:5173"
+        value: "https://escape-finder-frontend.onrender.com,http://localhost:5173,http://127.0.0.1:5173"
 
   - type: web
     name: escape-finder-frontend
@@ -29,7 +29,7 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_BASE_URL
-        sync: false
+        value: "https://escape-finder-backend.onrender.com"
       - key: VITE_MAPBOX_TOKEN
         sync: false
 

@@ -6,6 +6,40 @@ const SOURCE_ID = "country-boundaries-source";
 const FILL_LAYER_ID = "country-highlight-fill";
 const LINE_LAYER_ID = "country-highlight-line";
 
+// Seed dataset currently focuses on this country subset, so centroids are kept explicit for smooth camera jumps.
+const COUNTRY_CENTERS = {
+  ARE: [54.3, 23.6],
+  AUS: [134.5, -25.7],
+  CAN: [-106.3, 56.1],
+  CHL: [-71.5, -35.7],
+  CRI: [-84.2, 9.9],
+  CZE: [15.3, 49.8],
+  ESP: [-3.7, 40.4],
+  EST: [25.0, 58.7],
+  ISL: [-19.0, 64.9],
+  JPN: [138.2, 36.2],
+  NZL: [174.7, -41.2],
+  PRT: [-8.2, 39.4],
+  SGP: [103.8, 1.35],
+  CHE: [8.2, 46.8],
+  THA: [100.9, 15.8],
+  URY: [-55.8, -32.6],
+  USA: [-98.6, 39.8],
+};
+
+function getCameraPadding() {
+  if (typeof window === "undefined") {
+    return { top: 28, bottom: 180, left: 12, right: 12 };
+  }
+
+  const isMobile = window.innerWidth < 768;
+  if (isMobile) {
+    return { top: 24, bottom: 170, left: 10, right: 10 };
+  }
+
+  return { top: 34, bottom: 220, left: 16, right: 16 };
+}
+
 function buildOpacityExpression(activeCountries) {
   return [
     "case",
@@ -69,16 +103,97 @@ function ensureLayers(map, activeCountries) {
   }
 }
 
+function geometryToBounds(geometry) {
+  if (!geometry?.coordinates) {
+    return null;
+  }
+
+  let minLng = Infinity;
+  let minLat = Infinity;
+  let maxLng = -Infinity;
+  let maxLat = -Infinity;
+
+  function visit(node) {
+    if (!Array.isArray(node)) {
+      return;
+    }
+
+    if (typeof node[0] === "number" && typeof node[1] === "number") {
+      const [lng, lat] = node;
+      minLng = Math.min(minLng, lng);
+      minLat = Math.min(minLat, lat);
+      maxLng = Math.max(maxLng, lng);
+      maxLat = Math.max(maxLat, lat);
+      return;
+    }
+
+    node.forEach(visit);
+  }
+
+  visit(geometry.coordinates);
+
+  if (!Number.isFinite(minLng) || !Number.isFinite(minLat) || !Number.isFinite(maxLng) || !Number.isFinite(maxLat)) {
+    return null;
+  }
+
+  return [
+    [minLng, minLat],
+    [maxLng, maxLat],
+  ];
+}
+
 function MapContainer({ activeCountries, topRecommendations }) {
   const mapRef = useRef(null);
   const mapContainerRef = useRef(null);
   const [mapError, setMapError] = useState("");
+  const [selectedIso3, setSelectedIso3] = useState("");
 
   const token = import.meta.env.VITE_MAPBOX_TOKEN;
   const normalizedCountries = useMemo(
     () => Array.from(new Set((activeCountries || []).map((iso) => iso.toUpperCase()))),
     [activeCountries]
   );
+
+  function focusCountry(iso3) {
+    const map = mapRef.current;
+    if (!map || !map.isStyleLoaded()) {
+      return;
+    }
+
+    setSelectedIso3(iso3);
+
+    const predefined = COUNTRY_CENTERS[iso3];
+    if (predefined) {
+      map.flyTo({
+        center: predefined,
+        zoom: 3,
+        duration: 1200,
+        essential: true,
+      });
+      return;
+    }
+
+    const features = map.querySourceFeatures(SOURCE_ID, {
+      sourceLayer: "country_boundaries",
+      filter: ["==", ["coalesce", ["get", "iso_3166_1_alpha_3"], ["get", "iso_3166_1"]], iso3],
+    });
+
+    if (!features.length) {
+      return;
+    }
+
+    const bounds = geometryToBounds(features[0].geometry);
+    if (!bounds) {
+      return;
+    }
+
+    map.fitBounds(bounds, {
+      padding: getCameraPadding(),
+      duration: 1200,
+      maxZoom: 4,
+      essential: true,
+    });
+  }
 
   useEffect(() => {
     if (!token || !mapContainerRef.current || mapRef.current) {
@@ -92,11 +207,12 @@ function MapContainer({ activeCountries, topRecommendations }) {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/light-v11",
-      center: [11, 20],
+      center: [11, 24],
       zoom: 1.25,
       pitch: 28,
       antialias: true,
       projection: "globe",
+      padding: getCameraPadding(),
     });
 
     map.addControl(new mapboxgl.NavigationControl({ showCompass: true }), "top-right");
@@ -113,8 +229,15 @@ function MapContainer({ activeCountries, topRecommendations }) {
       ensureLayers(map, normalizedCountries);
     });
 
+    const handleResize = () => {
+      map.setPadding(getCameraPadding());
+    };
+
+    window.addEventListener("resize", handleResize);
+
     mapRef.current = map;
     return () => {
+      window.removeEventListener("resize", handleResize);
       map.remove();
       mapRef.current = null;
     };
@@ -168,13 +291,22 @@ function MapContainer({ activeCountries, topRecommendations }) {
         <div className="mt-1 text-deep/70">Live filtering and fade-out enabled</div>
       </div>
 
-      <div className="pointer-events-none absolute bottom-3 left-3 right-3 rounded-xl bg-white/85 p-3 text-xs text-deep shadow">
+      <div className="absolute bottom-3 left-3 right-3 rounded-xl bg-white/85 p-3 text-xs text-deep shadow">
         <p className="mb-1 font-semibold">Top recommendations</p>
         <div className="flex flex-wrap gap-2">
           {topRecommendations.slice(0, 5).map((item) => (
-            <span key={item.iso3} className="rounded-full bg-calm/15 px-2 py-1 font-medium text-calm">
+            <button
+              key={item.iso3}
+              type="button"
+              onClick={() => focusCountry(item.iso3)}
+              className={`rounded-full px-2 py-1 font-medium transition ${
+                selectedIso3 === item.iso3
+                  ? "bg-calm text-white"
+                  : "bg-calm/15 text-calm hover:bg-calm/25"
+              }`}
+            >
               {item.country} ({item.score})
-            </span>
+            </button>
           ))}
           {topRecommendations.length === 0 && <span>No recommendation yet.</span>}
         </div>

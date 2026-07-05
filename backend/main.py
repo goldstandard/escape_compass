@@ -12,7 +12,7 @@ from sqlalchemy import text
 from app.api.routes.filter import router as filter_router
 from app.api.routes.questions import router as questions_router
 from app.config import settings
-from app.db import db_enabled, get_session
+from app.db import db_enabled, get_db_disabled_reason, get_session, verify_db_connection
 from app.db_store import seed_database
 
 LOGGER = logging.getLogger(__name__)
@@ -20,7 +20,13 @@ BASE_DIR = Path(__file__).resolve().parent
 
 
 def startup_seed_database() -> None:
-    if not db_enabled() or not settings.auto_seed_db:
+    if not settings.auto_seed_db:
+        return
+
+    if db_enabled() and not verify_db_connection():
+        LOGGER.warning("PostgreSQL connectivity check failed at startup, switching to JSON data fallback")
+
+    if not db_enabled():
         return
 
     try:
@@ -60,6 +66,18 @@ def health() -> dict:
 
     if not db_enabled():
         payload["database_status"] = "disabled"
+        reason = get_db_disabled_reason()
+        if reason:
+            payload["database_disabled_reason"] = reason
+        return payload
+
+    if not verify_db_connection():
+        payload["database_enabled"] = False
+        payload["database_status"] = "disabled"
+        payload["status"] = "ok"
+        reason = get_db_disabled_reason()
+        if reason:
+            payload["database_disabled_reason"] = reason
         return payload
 
     try:

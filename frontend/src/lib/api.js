@@ -1,4 +1,8 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL;
+const isLocalhost =
+  typeof window !== "undefined" && ["localhost", "127.0.0.1"].includes(window.location.hostname);
+
+const API_BASE_URL = configuredBaseUrl || (isLocalhost ? "http://localhost:8000" : "https://escape-finder-backend.onrender.com");
 
 async function request(path, options = {}) {
   const response = await fetch(`${API_BASE_URL}${path}`, {

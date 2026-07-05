@@ -1,11 +1,14 @@
 from __future__ import annotations
 
 import json
+import logging
 from functools import lru_cache
 from pathlib import Path
 from typing import Any, Dict, List
 
 from app.db_store import get_countries_from_db, get_questions_from_db
+
+LOGGER = logging.getLogger(__name__)
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "data"
@@ -25,7 +28,15 @@ def _read_json(path: Path) -> Dict[str, Any]:
 
 @lru_cache(maxsize=1)
 def load_questions() -> Dict[str, Any]:
-    payload = get_questions_from_db() or _read_json(QUESTIONS_PATH)
+    payload = None
+    try:
+        payload = get_questions_from_db()
+    except Exception as exc:  # pragma: no cover
+        LOGGER.warning("Falling back to questions.json because DB read failed: %s", exc)
+
+    if payload is None:
+        payload = _read_json(QUESTIONS_PATH)
+
     categories = payload.get("categories", [])
     if len(categories) < 1:
         raise DataValidationError("questions.json must contain at least one category")
@@ -38,7 +49,12 @@ def load_questions() -> Dict[str, Any]:
 
 @lru_cache(maxsize=1)
 def load_countries() -> List[Dict[str, Any]]:
-    db_countries = get_countries_from_db()
+    db_countries = None
+    try:
+        db_countries = get_countries_from_db()
+    except Exception as exc:  # pragma: no cover
+        LOGGER.warning("Falling back to countries_data.json because DB read failed: %s", exc)
+
     if db_countries is not None:
         countries = db_countries
     else:

@@ -1,112 +1,69 @@
-# Global Escape & Second Home Finder
+# Escape Compass
 
-Full-stack scaffold for a live 60-question country finder.
+Escape Compass is a full-stack demo application that helps users shortlist countries through a 60-question wizard, live filtering, and map visualization.
 
-## Stack
-- Frontend: React + Vite + Tailwind + Mapbox GL JS
-- Backend: FastAPI (Python 3.11+)
-- Seed data: JSON files in backend/data
+## Quick Links
 
-## Project Structure
-- backend/main.py - FastAPI entrypoint with CORS and router inclusion
-- backend/app/schemas.py - API and domain models
-- backend/app/scoring.py - hybrid hard-constraints + weighted scoring
-- backend/data/questions.json - generated from questionnaire markdown
-- backend/data/countries_data.json - country profiles (15+ sample countries)
-- frontend/src/App.jsx - split layout and global state orchestration
-- frontend/src/components/QuestionWizard.jsx - one-question wizard with progress
-- frontend/src/components/MapContainer.jsx - live map fade rendering
+1. Full documentation index: [docs/README.md](docs/README.md)
+2. Local setup: [docs/SETUP_LOCAL.md](docs/SETUP_LOCAL.md)
+3. API and data contracts: [docs/API_AND_DATA.md](docs/API_AND_DATA.md)
+4. Deployment and operations: [docs/DEPLOYMENT_AND_OPERATIONS.md](docs/DEPLOYMENT_AND_OPERATIONS.md)
+5. Scoring implementation roadmap: [logic-scoring-implementation.md](logic-scoring-implementation.md)
 
-## Backend Setup
-1. Create a venv and install dependencies:
-   - `cd backend`
-   - `python -m venv .venv`
-   - `.venv\\Scripts\\activate`
-   - `pip install -r requirements.txt`
-2. Run API:
-   - `python -m uvicorn main:app --app-dir backend --host 127.0.0.1 --port 8000`
-3. Open docs:
-   - `http://localhost:8000/docs`
-4. Run backend tests:
-   - `cd backend`
-   - `.venv\\Scripts\\python -m pytest -q`
-   - note: DB-only tests auto-skip unless `DATABASE_URL` is set
+## Public Demo
 
-## PostgreSQL Mode
-1. Start local PostgreSQL:
-   - `docker compose up -d postgres`
-2. Check service health:
-   - `docker compose ps`
-3. Copy `backend/.env.example` to `backend/.env` and set a valid `DATABASE_URL`.
-4. Install dependencies from `backend/requirements.txt`.
-5. Seed database from JSON files:
-   - `cd backend`
-   - `.venv\\Scripts\\python scripts/seed_postgres.py`
-6. Start API as usual. On startup, API will attempt DB schema creation and seed sync when `AUTO_SEED_DB=true`.
-7. If DB is unavailable, API automatically falls back to JSON files so local development remains unblocked.
+1. Frontend: https://escape-finder-frontend.onrender.com
+2. Backend: https://escape-finder-backend.onrender.com
 
-## Runtime Smoke Check
-1. Start backend API.
-2. Run:
-   - `cd backend`
-   - `.venv\\Scripts\\python scripts/verify_runtime.py`
-3. The script verifies `/health`, `/api/questions`, and `/api/filter` in one pass.
+## Tech Stack
 
-## Frontend Setup
-1. Install dependencies:
-   - `cd frontend`
-   - `npm install`
-2. Configure env:
-   - copy `frontend/.env.example` to `frontend/.env`
-   - set `VITE_MAPBOX_TOKEN`
-   - optional: adjust `VITE_API_BASE_URL`
-3. Run dev server:
-   - `npm run dev`
+1. Frontend: React, Vite, Tailwind, Mapbox GL JS
+2. Backend: FastAPI, Pydantic, SQLAlchemy
+3. Data: JSON seed files, optional PostgreSQL persistence
+4. Deployment: Render Blueprint via [render.yaml](render.yaml)
 
-## Public Demo Deployment
-Use Render Blueprint deployment with the checked-in `render.yaml`.
+## Fastest Local Start
 
-1. Push repository to GitHub.
-2. In Render, create a new Blueprint from this repo.
-3. Follow the full step-by-step guide in `DEPLOY_PUBLIC_RENDER.md`.
+From repository root:
 
-Important:
-- Set frontend env `VITE_API_BASE_URL` to backend public URL.
-- Set backend env `CORS_ORIGINS` to include your frontend public URL.
+1. docker compose up -d --build
+2. Open http://localhost:5173
+3. Check backend health at http://localhost:8000/health
 
-## API Contract
-### GET /api/questions
-Returns categories and all 60 parsed questions from `escape_location_questionnaire.md`.
+Stop stack:
 
-### POST /api/filter
-Request:
-```json
-{
-  "answered_questions": {
-    "q1": "A",
-    "q2": "C"
-  }
-}
-```
+1. docker compose down
 
-Response:
-```json
-{
-  "remaining_countries": ["PRT", "ESP", "CRI"],
-  "top_recommendations": [
-    {
-      "iso3": "PRT",
-      "country": "Portugal",
-      "score": 87.4,
-      "hard_constraints_passed": true,
-      "matched": 18,
-      "considered": 23
-    }
-  ]
-}
-```
+## What Is Complete
 
-## Notes
-- Live map effect is implemented through dynamic Mapbox fill expressions driven by `remaining_countries`.
-- Countries not matching current answers are faded in real-time.
-- Current seed set is intentionally lightweight and can be expanded to full world coverage later.
+1. End-to-end flow works (wizard -> API -> recommendations -> map/fallback panel).
+2. Local Docker stack is configured and tested.
+3. Public Render deployment is configured and live.
+4. CORS, startup seeding, health checks, and database URL normalization are implemented.
+
+## Current Known Product Limitation
+
+1. Scoring logic is intentionally partial and not fully tuned for all question options.
+2. Recommendation quality is therefore demo-level and should be expanded iteratively.
+
+For implementation plan, see [logic-scoring-implementation.md](logic-scoring-implementation.md).
+
+## Repository Layout (High Level)
+
+1. [backend/main.py](backend/main.py): FastAPI app bootstrap, CORS, health, startup seeding
+2. [backend/app/scoring.py](backend/app/scoring.py): hard constraints + weighted rules
+3. [backend/app/data_loader.py](backend/app/data_loader.py): DB-first loading with JSON fallback
+4. [frontend/src/App.jsx](frontend/src/App.jsx): UI orchestration and filtering lifecycle
+5. [frontend/src/components/MapContainer.jsx](frontend/src/components/MapContainer.jsx): live globe and fallback panel
+6. [docker-compose.yml](docker-compose.yml): local multi-service stack
+7. [render.yaml](render.yaml): cloud deployment blueprint
+
+## Contribution Notes
+
+1. Keep secrets out of version control.
+2. Run backend tests before pushing changes:
+   - cd backend
+   - .venv\Scripts\python -m pytest -q
+3. Run frontend production build before release:
+   - cd frontend
+   - npm run build

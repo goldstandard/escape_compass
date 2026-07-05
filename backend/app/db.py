@@ -3,7 +3,7 @@ from __future__ import annotations
 from contextlib import contextmanager
 from typing import Iterator
 
-from sqlalchemy import JSON, String, create_engine
+from sqlalchemy import JSON, String, create_engine, text
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, sessionmaker
 
@@ -37,10 +37,35 @@ def _build_engine():
 
 engine = _build_engine()
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False, expire_on_commit=False) if engine else None
+_db_disabled_reason: str | None = None
+
+
+def disable_db(reason: str) -> None:
+    global engine, SessionLocal, _db_disabled_reason
+    engine = None
+    SessionLocal = None
+    _db_disabled_reason = reason
+
+
+def get_db_disabled_reason() -> str | None:
+    return _db_disabled_reason
 
 
 def db_enabled() -> bool:
     return engine is not None and SessionLocal is not None
+
+
+def verify_db_connection() -> bool:
+    if not db_enabled() or engine is None:
+        return False
+
+    try:
+        with engine.connect() as connection:
+            connection.execute(text("SELECT 1"))
+        return True
+    except SQLAlchemyError as exc:
+        disable_db(f"Database disabled due to connectivity error: {exc}")
+        return False
 
 
 def create_schema() -> None:
